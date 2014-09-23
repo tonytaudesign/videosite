@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-  def home
+  def upload_form
   end
 end

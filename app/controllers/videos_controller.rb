@@ -152,7 +152,8 @@ class VideosController < ApplicationController
   end
 
 
-
+  def upload_form
+  end
 
 
 

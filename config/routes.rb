@@ -1,4 +1,5 @@
 Vs::Application.routes.draw do
+  get "pages/upload_form"
   resources :searches
 
   resources :videos do
@@ -10,6 +11,8 @@ Vs::Application.routes.draw do
        get  :save_video
      end
   end
+
+  get 'videos/upload_form'
 
   get "authentications/google"
   match 'auth/google_oauth2/callback', :to => 'authentications#create', via: :get

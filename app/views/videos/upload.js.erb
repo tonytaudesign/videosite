@@ -1,0 +1,6 @@
+
+<% if @no_title %>
+  $('.upload-alert').html("<p>Title is Required to upload this video</p>");
+<% else %>
+  $('.upload-form').html('<%= escape_javascript render(:partial => "videos/upload_two", :locals => { :upload_info => @upload_info }) %>');
+<% end %>

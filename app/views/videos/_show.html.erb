@@ -1,0 +1,9 @@
+	</br>
+	<div class="view-all">
+	  <%= link_to "View All Videos", root_path %>
+	</div>
+	<% if video.youtube_url.present? %>
+		<div class="video-container">
+	    <%= youtube_embed(video.youtube_url).html_safe %>
+		</div>
+	<% end %>

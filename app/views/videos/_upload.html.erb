@@ -1,0 +1,22 @@
+<p>Upload a video.</p>
+
+<%= form_for @video, :html => {:multipart => true} do %>
+
+			Title: (required)</br>
+				 <%= text_field_tag :title %></br>
+			Age:</br>
+        <%= number_field_tag :age, 24 %>  </br>
+       Sex:</br>
+       <%= select_tag(:sex, options_for_select([['Male', "Male"], ['Female', "Female"]], selected: :sex )) %> </br>
+			 Location:</br>
+			   <%= text_field_tag :location %></br>
+       Keywords: (separate by comma)</br>
+         <%= text_field_tag :keywords %></br>
+
+</br>
+
+	<%= file_field_tag :video %>
+
+	</br></br>
+	<%= submit_tag "Upload Video", class: "button upload-small"%>
+<% end %>

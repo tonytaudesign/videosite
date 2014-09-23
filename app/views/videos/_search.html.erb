@@ -1,0 +1,13 @@
+<p>Search for a video.</p>
+
+<%= form_for @search do %>
+       Age:<br/>
+         <%= number_field_tag :age, 24 %> </br>
+       Sex:<br/>
+       <%= select_tag(:sex, options_for_select([['Male', "Male"], ['Female', "Female"]], selected: :sex )) %> </br>
+			 Location:<br/>
+			   <%= text_field_tag :location %></br>
+       Keywords:<br/>
+       <%= text_field_tag :keywords %></br><br/>
+    <%= submit_tag "Search", class:"button upload-small" %>
+ <% end %>   

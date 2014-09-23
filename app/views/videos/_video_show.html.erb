@@ -1,0 +1,12 @@
+
+
+<% if video.thumbnail.present? %>
+	<div class="box col3 center">
+	  <div class="video responsive-video">
+	 	  <%= link_to image_tag(video.thumbnail), video_path(video), remote: true %>
+	  	<div class="details">
+	  	 Title: --  Age: -- Sex: -- Location: --
+	  	</div>
+		</div>
+	</div>
+<% end %>

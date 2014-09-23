@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTB | Good To Your Woman</title>
+    <meta name="description" content="Julian Taylor Band- Tell us what it means to be good to your woman" />
+    <meta name="keywords" content="Julian Taylor Band, Good to your woman" />
+    <meta name="author" content="Shane Boland" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <%= javascript_include_tag "modernizr.custom" %>
+    <%= javascript_include_tag "nlform.js" %>
+</head>
+
+<body>
+
+    <section>
+        <div class="bubble-overlay">
+            <div class="header">
+                <h2 class="jtb">
+                    <span>Julian Taylor Band</span>
+                </h2>
+                <h1 id="title">Be Good to your Woman</h1>
+                <div class="buttons">
+                    <%= image_tag "jellyfish.png", class: "jellyfish", alt: "jellyfish doodle" %>
+                    <a href="#search" class="button" alt="Watch Others Videos">Watch<br/><span>See Others' Videos</span></a>
+                    <a href="#upload" class="button secondary" alt="Upload a Video">Upload<br/><span>Tell us with video</span></a>
+                    <%= image_tag "jellyfish2.png", class: "jellyfish2", alt: "jellyfish doodle" %>
+                </div>
+            </div>
+        </div>
+        <div class="bar">
+            <a name="search"></a>
+            <div class="boxes">
+                <form id="nl-form" class="nl-form">
+
+                    <div class="box">
+                        <p>
+                            <span>Age</span>
+                        </p>
+
+                        <select id="age">
+                            <option id="all" value="1" selected>All</option>
+                            <option id="21under" value="2">21 & under</option>
+                            <option id="2145" value="3">21-45</option>
+                            <option id="45over" value="4">45 & over</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span>Gender</span>
+                        </p>
+                        <select id="gender">
+                            <option id="male" value="1" selected>Male</option>
+                            <option id="female" value="2">Female</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span>Location</span>
+                        </p>
+                        <select id="location">
+                            <option id="america" value="1" selected>America</option>
+                            <option id="asia" value="2">Asia</option>
+                            <option id="europe" value="3">Europe</option>
+                            <option id="australia" value="4">Australia</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p id="popularity">
+                            <span>Popularity</span>
+                            <br/>
+                            <input type="checkbox" id="popularity-checkbox" name="popularity" value="Most Viewed">Most Viewed
+                        </p>
+                    </div>
+                    <button class="nl-submit" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <iframe src="http://player.vimeo.com/video/101557016?color=ffffff" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </section>
+    <section>
+        <a name="upload"></a>
+        <div class="bar secondary">
+            <h4 id="good">Tell us what it means to be good to
+                <strong>your</strong>woman</h4>
+        </div>
+        <div class="footer">
+            <form id="nl-form2" class="nl-form2">
+                <div class="your-name boxes">
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Your name</span>
+                        </p>
+                        <input type="text" id="name" name="name" value="" placeholder="Erik Von Stackelberg">
+                    </div>
+                </div>
+                <%= image_tag "jellyfish3.png", class: "jellyfish3", alt: "jellyfish doodle" %>
+                <div class="boxes">
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Location</span>
+                        </p>
+                        <input type="text" id="location" name="location" value="" placeholder="Toronto">
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Age</span>
+                        </p>
+
+                        <select id="age">
+                            <option id="all" value="1" selected>All</option>
+                            <option id="21under" value="2">21 & under</option>
+                            <option id="2145" value="3">21-45</option>
+                            <option id="45over" value="4">45 & over</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Gender</span>
+                        </p>
+                        <select id="gender">
+                            <option id="male" value="1" selected>Female</option>
+                            <option id="female" value="2">Male</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p id="popularity">
+                            <span class="footer-label">Video file</span>
+                            <br/>
+                        </p>
+                        <input type="button" id="clickme" value="Browse" />
+                        <input type="text" id="filename" />
+                        <input type="file" id="uploadme" />
+
+                    </div>
+                    <button class="nl-submit" type="submit">Submit</button>
+                    <%= image_tag "jellyfish4.png", class: "jellyfish4", alt: "jellyfish doodle" %>
+            </form>
+            </div>
+        </div>
+    </section>
+
+    <%= javascript_include_tag "jquery.fittext" %>
+    <%= javascript_include_tag "nlform" %>
+    <%= javascript_include_tag "script" %>
+
+    <script>
+    $(document).ready(function() {
+        jQuery("#title").fitText(1.2);
+    });
+    var nlform = new NLForm(document.getElementById('nl-form'));
+    var nlform1 = new NLForm(document.getElementById('nl-form2'));
+    </script>
+</body>
+
+</html>

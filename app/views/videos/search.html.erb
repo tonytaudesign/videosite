@@ -1,0 +1,9 @@
+<div class="video item">
+	<% if @video.youtube_url.present? %>
+    <%= youtube_embed(@video.youtube_url).html_safe %>
+  <% end %>
+  <div class="details">
+  	<!-- -->
+  </div>
+</div>
+

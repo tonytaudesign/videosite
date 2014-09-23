@@ -1,0 +1,5 @@
+<h1>Search Results</h1>
+<div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 300, "itemSelector": ".item" }'><!--needed for masonry-->
+<%#= render @videos %>
+<%= will_paginate @videos %>
+</div>

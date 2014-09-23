@@ -106,14 +106,14 @@ section {
 section:first-of-type {
     border: 1px solid #0ec1a1;
     border: 1px solid rgba(14, 193, 161, 0);
-    background-image: url(../img/gradient.png);
+    background-image: url(image_path('gradient.png'));
     background-size: cover;
 }
 section:nth-of-type(2) {
     background: #222;
     border: 1px solid #0ec1a1;
     border: 1px solid rgba(14, 193, 161, 0);
-    background-image: url(../img/second-bg.png);
+    background-image: url(image_path('second-bg.png'));
     background-size: cover;
     padding-bottom: 75px;
 }
@@ -212,7 +212,8 @@ section:last-of-type {
 .bubble-overlay {
     width: 100%;
     height: 100%;
-    background: url(../img/bubbles.png) repeat-x;
+    background: url(image_path('bubbles.png'));
+    background-repeat: repeat-x;
     border: 1px solid #0ec1a1;
     border: 1px solid rgba(14, 193, 161, 0);
 }
@@ -421,38 +422,7 @@ input:-ms-input-placeholder {
     overflow: hidden;
     background: transparent;
 }
-.nl-form2 {
-    width: 85%;
-    margin: 0 auto;
-    height: 300px;
-    background: #f2f2f2;
-    position: relative;
-    color: #464961;
-    float: left;
-    position: relative;
-    top: 35%;
-    transform: translateY(-50%);
-}
-.nl-form2 .nl-submit {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 238px;
-    margin: 0 auto;
-    float: none;
-    display: inline-block;
-    text-align: center;
-    border-radius: 3px;
-    font-size: 28px;
-    font-weight: 700;
-    background: #0ec1a1;
-    text-transform: uppercase;
-    color: white;
-    transition: all 0.3s ease;
-    padding: 10px 50px;
-    z-index: 2;
-}
+
 .disclaimer {
     font-size: 26.67px;
     position: absolute;

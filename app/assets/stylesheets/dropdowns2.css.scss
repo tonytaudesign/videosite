@@ -1,19 +1,52 @@
 @font-face {
     font-family: 'nlicons';
-    src: url('../fonts/nlicons.eot');
-    src: url('../fonts/nlicons.eot?#iefix') format('embedded-opentype'), url('../fonts/nlicons.woff') format('woff'), url('../fonts/nlicons.ttf') format('truetype'), url('../fonts/nlicons.svg#nlicons') format('svg');
+    src: asset-url('nlicons.eot');
+    src: asset-url('nlicons.eot?#iefix') format('embedded-opentype'),
+         asset-url('nlicons.woff') format('woff'),
+         asset-url('nlicons.ttf') format('truetype'),
+         asset-url('nlicons.svg#nlicons') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 /* general style for the form */
 
-.nl-form2 {
-    font-size: 28.17px;
-}
 .nl-form2 ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+.nl-form2 {
+    font-size: 28.17px;
+    width: 85%;
+    margin: 0 auto;
+    height: 300px;
+    background: #f2f2f2;
+    position: relative;
+    color: #464961;
+    float: left;
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+}
+.nl-form2 .nl-submit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 238px;
+    margin: 0 auto;
+    float: none;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 28px;
+    font-weight: 700;
+    background: #0ec1a1;
+    text-transform: uppercase;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 10px 50px;
+    z-index: 2;
 }
 /* normalize the input elements, make them look like everything else */
 
@@ -31,9 +64,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
 }
-p#popularity {
-    font-size: 20px;
-}
 .nl-form2 input:focus {
     outline: none;
 }
@@ -48,7 +78,7 @@ p#popularity {
 }
 /* the toggle is the visible part in the form */
 
-.nl-field-toggle, .nl-form2 input, .nl-form2 select {
+.nl-form2 .nl-field-toggle, .nl-form2 input, .nl-form2 select {
     line-height: inherit;
     display: inline-block;
     color: #464961;
@@ -186,7 +216,7 @@ input:active::-ms-input-placeholder, input:focus::-ms-input-placeholder {
     color: #fff
 }
 
-.nl-submit:before {
+.nl-form2 .nl-submit:before {
     display:none;
 }
 .no-touch .nl-form2 .nl-submit:hover, .no-touch .nl-form2 .nl-submit:active {

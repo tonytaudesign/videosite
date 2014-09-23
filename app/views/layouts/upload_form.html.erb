@@ -1,0 +1,53 @@
+<form id="nl-form2" class="nl-form2">
+                <div class="your-name boxes">
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Your name</span>
+                        </p>
+                        <input type="text" id="name" name="name" value="" placeholder="Erik Von Stackelberg">
+                    </div>
+                </div>
+                <%= image_tag "jellyfish3.png", class: "jellyfish3", alt: "jellyfish doodle" %>
+                <div class="boxes">
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Location</span>
+                        </p>
+                        <input type="text" id="location" name="location" value="" placeholder="Toronto">
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Age</span>
+                        </p>
+
+                        <select id="age">
+                            <option id="all" value="1" selected>All</option>
+                            <option id="21under" value="2">21 & under</option>
+                            <option id="2145" value="3">21-45</option>
+                            <option id="45over" value="4">45 & over</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <p>
+                            <span class="footer-label">Gender</span>
+                        </p>
+                        <select id="gender">
+                            <option id="male" value="1" selected>Female</option>
+                            <option id="female" value="2">Male</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                <p id="video-file">
+                    <span class="footer-label">Video file</span>
+                    <br/>
+                </p>
+
+                <div class="custom-file-upload">
+                    <input type="file" id="file" name="myfiles[]" multiple />
+                </div>
+
+
+            </div>
+                    <button class="nl-submit" type="submit">Submit</button>
+                    <%= image_tag "jellyfish4.png", class: "jellyfish4", alt: "jellyfish doodle" %>
+            </form>

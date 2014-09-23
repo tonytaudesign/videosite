@@ -106,14 +106,14 @@ section {
 section:first-of-type {
     border: 1px solid #0ec1a1;
     border: 1px solid rgba(14, 193, 161, 0);
-    background-image: url(/assets/gradient.png);
+    background-image: url(../img/gradient.png);
     background-size: cover;
 }
 section:nth-of-type(2) {
     background: #222;
     border: 1px solid #0ec1a1;
     border: 1px solid rgba(14, 193, 161, 0);
-    background-image: url(/assets/second-bg.png);
+    background-image: url(../img/second-bg.png);
     background-size: cover;
     padding-bottom: 75px;
 }

@@ -39,7 +39,6 @@
             <a name="search"></a>
             <div class="boxes">
                 <form id="nl-form" class="nl-form">
-
                     <div class="box">
                         <p>
                             <span>Age</span>
@@ -93,9 +92,7 @@
             <h4 id="good">Tell us what it means to be good to
                 <strong>your</strong>&nbsp;woman</h4>
         </div>
-        <div class="footer">
-            <iframe src="#"></iframe> <!--Add in the _upload_form.html.erb partial as the source-->
-        </div>
+            <iframe src="/pages/upload_form" scrolling="no" width="100%" height="100%" id="iframe-form" ></iframe>
     </section>
 
     <%= javascript_include_tag "jquery.fittext" %>
@@ -103,11 +100,7 @@
     <%= javascript_include_tag "script" %>
 
     <script>
-    $(document).ready(function() {
-        jQuery("#title").fitText(1.2);
-    });
     var nlform = new NLForm(document.getElementById('nl-form'));
-    var nlform1 = new NLForm(document.getElementById('nl-form2'));
     </script>
 </body>
 

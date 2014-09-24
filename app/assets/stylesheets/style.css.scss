@@ -441,31 +441,3 @@ input:-ms-input-placeholder {
     overflow: hidden;
     background: transparent;
 }
-.nl-form2 {
-    width: 85%;
-    margin: 0 auto;
-    height: 300px;
-    background: #f4f3e6;
-    position: relative;
-    color: #464961;
-}
-.nl-form2 .nl-submit {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 238px;
-    margin: 0 auto;
-    float: none;
-    display: inline-block;
-    text-align: center;
-    border-radius: 3px;
-    font-size: 28px;
-    font-weight: 700;
-    background: #0ec1a1;
-    text-transform: uppercase;
-    color: white;
-    transition: all 0.3s ease;
-    padding: 0px 50px;
-    z-index: 2;
-}

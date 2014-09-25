@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:edit, :update, :destroy]
-  
+  skip_before_filter :verify_authenticity_token  
 
   # GET /videos
   # GET /videos.json
@@ -26,15 +26,19 @@ class VideosController < ApplicationController
   end
 
   def search
-    @video = Video.new
-    @search = Search.new
-    if params[:page].present?
-      page = params[:page]
-    else
-      page = 1
-    end
-    search = Search.find(params[:id])
-    @videos = search.videos.where('created_at > ?' , 1.hours.ago).page(page).per_page(5)
+    binding.pry
+    # @video = Video.new
+    # @search = Search.new
+    # if params[:page].present?
+    #   page = params[:page]
+    # else
+    #   page = 1
+    # end
+    # search = Search.find(params[:id])
+    # @videos = search.videos.where('created_at > ?' , 1.hours.ago).page(page).per_page(5)
+    respond_to do |format|               
+      format.js
+    end   
   end
 
   # GET /videos/new
@@ -49,31 +53,11 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    begin
-      video = Video.create({title: params[:title], age: params[:age], sex: params[:sex], location: params[:location], keywords: params[:keywords], video: params[:video]})
-      url = video.aws_url = video.video.url
-      client = YouTubeIt::Client.new(:username => ENV['USERNAME'] , :password => ENV['PASSWORD'] , :dev_key => ENV['DEVELOPER_KEY'])
-      youtube_video = client.video_upload(url, title: video.title)
-      youtube_url = video.youtube_url = youtube_video.media_content[0].url
-      if youtube_url[/youtu\.be\/([^\?]*)/]
-        video.yt_video_id = $1
-      else
-        # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
-        youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
-        video.yt_video_id = $5
-      end
-      video.thumbnail = youtube_video.thumbnails[1].url
-      video.save
-      session[:video] = nil
-      flash[:notice]  = "Video uploaded successfully"
-     
-
-      render "videos/index"
+    binding.pry
   
-    rescue Exception => e
-      session[:update] = "upload_error"
-      redirect_to root_path
-    end
+
+      redirect_to "http://localhost:3000"
+
     # omni_request =  session[:omniauth]
     # token = omni_request["credentials"].token
     # refresh_token = omni_request["credentials"].refresh_token

@@ -35,16 +35,19 @@
                 </div>
             </div>
         </div>
-        <div id="top-bar" class="bar">
+        <div class="bar">
             <a name="search"></a>
             <div class="boxes">
-                <form id="nl-form" class="nl-form">
+                
+                <form id="nl-form" class="nl-form" method="post" action="videos/search", data-remote="true">
+
+
                     <div class="box">
                         <p>
                             <span>Age</span>
                         </p>
 
-                        <select id="age">
+                        <select id="age" name="age">
                             <option id="all" value="1" selected>All</option>
                             <option id="21under" value="2">21 & under</option>
                             <option id="2145" value="3">21-45</option>
@@ -55,7 +58,7 @@
                         <p>
                             <span>Gender</span>
                         </p>
-                        <select id="gender">
+                        <select id="gender" name="gender">
                             <option id="male" value="1" selected>Male</option>
                             <option id="female" value="2">Female</option>
                         </select>
@@ -64,7 +67,7 @@
                         <p>
                             <span>Location</span>
                         </p>
-                        <select id="location">
+                        <select id="location" name="location">
                             <option id="america" value="1" selected>America</option>
                             <option id="asia" value="2">Asia</option>
                             <option id="europe" value="3">Europe</option>
@@ -95,6 +98,22 @@
             <iframe src="/pages/upload_form" scrolling="no" width="100%" height="100%" id="iframe-form" ></iframe>
     </section>
 
+
+    <section class="video-results">
+        <div class="video-render">
+          <%= render @videos %>
+        </div>
+        <%#= will_paginate @videos %>
+    </section>
+
+
+
+
+
+
+
+
+
     <%= javascript_include_tag "jquery.fittext" %>
     <%= javascript_include_tag "nlform" %>
     <%= javascript_include_tag "script" %>
@@ -102,6 +121,11 @@
     <script>
     var nlform = new NLForm(document.getElementById('nl-form'));
     </script>
+
+
+    
+
+
 </body>
 
 </html>

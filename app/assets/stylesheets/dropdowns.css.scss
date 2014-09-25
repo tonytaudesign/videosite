@@ -231,13 +231,16 @@ input:active::-ms-input-placeholder, input:focus::-ms-input-placeholder {
     .no-touch .nl-form .nl-submit:hover, .no-touch .nl-form .nl-submit:active {
         background: #0ec1a1;
     }
+    .nl-form2 .nl-field-toggle, .nl-form2 input, .nl-form2 select {
+    font-size: 61.8%!important;
+    }
+    #top-bar {
+        height: 200px;
+    }
 }
 @media screen and (max-width: 730px) {
     .nl-form .nl-submit {
         margin-right: -50px;
-    }
-    .bar {
-        height: 200px;
     }
     .bar.secondary {
         height: 100px;

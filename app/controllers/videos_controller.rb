@@ -26,7 +26,17 @@ class VideosController < ApplicationController
   end
 
   def search
-    binding.pry
+    age = params[:age] 
+    gender = params[:gender]
+
+    @videos = Video.all
+    @videos =  @videos.where(age: age) if age
+    @videos =  @videos.where(sex: gender) if gender
+    @videos =  @videos.where('created_at > ?' , 1.hours.ago)
+    
+    respond_to do |format|               
+      format.js
+    end   
     # @video = Video.new
     # @search = Search.new
     # if params[:page].present?
@@ -36,9 +46,7 @@ class VideosController < ApplicationController
     # end
     # search = Search.find(params[:id])
     # @videos = search.videos.where('created_at > ?' , 1.hours.ago).page(page).per_page(5)
-    respond_to do |format|               
-      format.js
-    end   
+   
   end
 
   # GET /videos/new
@@ -53,11 +61,35 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    binding.pry
+     
+     begin
+      video = Video.create({name: params[:name], title: params[:name], age: params[:age], sex: params[:gender], location: params[:location], video: params[:myfiles]})
+      url = video.aws_url = video.video.url
+      client = YouTubeIt::Client.new(:username => ENV['USERNAME'] , :password => ENV['PASSWORD'] , :dev_key => ENV['DEVELOPER_KEY'])
+      youtube_video = client.video_upload(url, title: video.title)
+      youtube_url = video.youtube_url = youtube_video.media_content[0].url
+      if youtube_url[/youtu\.be\/([^\?]*)/]
+        video.yt_video_id = $1
+      else
+        # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+        youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+        video.yt_video_id = $5
+      end
+      video.thumbnail = youtube_video.thumbnails[1].url
+      video.save
+      session[:video] = nil
+      flash[:notice]  = "Video uploaded successfully"
+      session[:aws_url] = video.aws_url
+
+      respond_to do |format|
+        format.js
+      end
   
-
-      redirect_to "http://localhost:3000"
-
+    rescue Exception => e
+      binding.pry
+      session[:update] = "upload_error"
+      redirect_to root_path
+    end
     # omni_request =  session[:omniauth]
     # token = omni_request["credentials"].token
     # refresh_token = omni_request["credentials"].refresh_token

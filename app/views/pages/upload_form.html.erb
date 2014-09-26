@@ -4,6 +4,7 @@
 <head>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,7 +18,12 @@
 </head>
 
 <body>
-<form id="nl-form2" class="nl-form2" action="/videos/create" method="post" enctype="multipart/form-data" >
+
+
+
+    <%= form_tag "/videos/create", id: "nl-form2", class: "nl-form2", method: :post, multipart: true, remote: true do %>
+<!-- <form id="nl-form2" class="nl-form2" action="/videos/create" method="post" enctype="multipart/form-data" >
+ -->
         <div class="your-name boxes">
             <div class="box">
                 <p>
@@ -39,20 +45,20 @@
                     <span class="footer-label">Age</span>
                 </p>
 
-                <select id="age">
-                    <option id="all" value="1" selected>All</option>
-                    <option id="21under" value="2">21 & under</option>
-                    <option id="2145" value="3">21-45</option>
-                    <option id="45over" value="4">45 & over</option>
+                <select id="age" name="age">
+                    <option id="all" value="0" selected>--?--</option>
+                    <option id="21under" value="1">21 & under</option>
+                    <option id="2145" value="2">21-45</option>
+                    <option id="45over" value="3">45 & over</option>
                 </select>
             </div>
             <div class="box">
                 <p>
                     <span class="footer-label">Gender</span>
                 </p>
-                <select id="gender">
-                    <option id="male" value="1" selected>Female</option>
-                    <option id="female" value="2">Male</option>
+                <select id="gender" name="gender">
+                    <option id="male" value="m" selected>Female</option>
+                    <option id="female" value="f">Male</option>
                 </select>
             </div>
             <div class="box">
@@ -62,14 +68,16 @@
                 </p>
 
                 <div class="custom-file-upload">
-                    <input type="file" id="file" name="myfiles[]" multiple />
+                    <%= file_field_tag 'myfiles', id: "file"%>
+                    <!-- <input type="file" id="file" name="myfiles[]" multiple /> -->
                 </div>
 
 
             </div>
-            <button class="nl-submit" type="submit">Submit</button>
-            <%= image_tag "jellyfish4.png", alt: "jellyfish doodle", class: "jellyfish4" %>
-    </form>
+
+            <button class="nl-submit yacht" type="submit"> Submit </button> 
+             <%= image_tag "jellyfish4.png", alt: "jellyfish doodle", class: "jellyfish4" %>
+    <% end %>
     <p class="disclaimer">By submitting, you allow us to upload your video to YouTube and use the video in relevant situations where the content is deemed appropriate. Please allow one hour for video upload.</p>
 
     <%= javascript_include_tag "jquery.fittext" %>

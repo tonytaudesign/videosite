@@ -3,6 +3,7 @@ class CreateVideos < ActiveRecord::Migration
     create_table :videos do |t|
       t.integer :age
       t.string :youtube_url
+      t.string :name
       t.string :youtube_user_url
       t.string :aws_url
       t.string :sex

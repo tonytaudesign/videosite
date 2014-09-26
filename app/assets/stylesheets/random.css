@@ -1,0 +1,13 @@
+.notification-nav{
+	height: 45px;
+	width: 100%;
+	position: fixed;
+    z-index: 10;
+    background-color: white;
+    display:visible;
+}	
+
+.loading-alert{
+  text-align: center;
+  color: #212126;
+}

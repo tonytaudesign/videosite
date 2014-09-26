@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+    <div class="notification-nav">dsd</div>
     <section>
         <div class="bubble-overlay">
             <div class="header">
@@ -39,8 +39,8 @@
             <a name="search"></a>
             <div class="boxes">
                 
-                <form id="nl-form" class="nl-form" method="post" action="videos/search", data-remote="true">
-
+                <!-- <form id="nl-form" class="nl-form" method="post" action="videos/search", data-remote="true"> -->
+                <%= form_tag "videos/search", class: "nl-form", id: "nl-form", method: :get, remote: true  do %>
 
                     <div class="box">
                         <p>
@@ -48,10 +48,10 @@
                         </p>
 
                         <select id="age" name="age">
-                            <option id="all" value="1" selected>All</option>
-                            <option id="21under" value="2">21 & under</option>
-                            <option id="2145" value="3">21-45</option>
-                            <option id="45over" value="4">45 & over</option>
+                            <option id="all" value="0" selected>All</option>
+                            <option id="21under" value="1">21 & under</option>
+                            <option id="2145" value="2">21-45</option>
+                            <option id="45over" value="3">45 & over</option>
                         </select>
                     </div>
                     <div class="box">
@@ -59,8 +59,8 @@
                             <span>Gender</span>
                         </p>
                         <select id="gender" name="gender">
-                            <option id="male" value="1" selected>Male</option>
-                            <option id="female" value="2">Female</option>
+                            <option id="male" value="m" selected>Male</option>
+                            <option id="female" value="f">Female</option>
                         </select>
                     </div>
                     <div class="box">
@@ -82,7 +82,7 @@
                         </p>
                     </div>
                     <button class="nl-submit" type="submit">Search</button>
-                </form>
+                <% end %><!-- </form> -->
             </div>
         </div>
     </section>

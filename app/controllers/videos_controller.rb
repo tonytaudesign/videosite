@@ -86,7 +86,6 @@ class VideosController < ApplicationController
       end
   
     rescue Exception => e
-      binding.pry
       session[:update] = "upload_error"
       redirect_to root_path
     end

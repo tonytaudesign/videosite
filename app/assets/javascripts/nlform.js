@@ -8,7 +8,7 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-( function( window ) {
+;( function( window ) {
 	
 	'use strict';
 
@@ -37,8 +37,8 @@
 				self.fldOpen++;
 				self.fields.push( new NLField( self, el, 'input', self.fldOpen ) );
 			} );
-			this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
-			this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
+			// this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
+			// this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
 		},
 		_closeFlds : function() {
 			if( this.fldOpen !== -1 ) {
@@ -61,7 +61,7 @@
 			if( this.type === 'dropdown' ) {
 				this._createDropDown();	
 			}
-			else if( this.type === 'iput' ) {
+			else if( this.type === 'input' ) {
 				this._createInput();	
 			}
 		},

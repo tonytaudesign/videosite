@@ -4,7 +4,6 @@
 <head>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -79,13 +78,14 @@
              <%= image_tag "jellyfish4.png", alt: "jellyfish doodle", class: "jellyfish4" %>
     <% end %>
     <p class="disclaimer">By submitting, you allow us to upload your video to YouTube and use the video in relevant situations where the content is deemed appropriate. Please allow one hour for video upload.</p>
-
+    <div class="overlay"></div>
+    
     <%= javascript_include_tag "jquery.fittext" %>
-    <%= javascript_include_tag "nlform" %>
+    <%= javascript_include_tag "nlform2" %>
     <%= javascript_include_tag "script" %>
-		<%= javascript_include_tag "customupload" %>
+	<%= javascript_include_tag "customupload" %>
     <script>
-    	var nlform1 = new NLForm(document.getElementById('nl-form2'));
+    	var nlform2 = new NLForm(document.getElementById('nl-form2'));
     </script>
 
 </body>
